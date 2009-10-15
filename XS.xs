@@ -175,6 +175,8 @@ CODE:
         name_len = headers[i].name_len + 5;
       }
       slot = hv_fetch(env, name, name_len, 1);
+      if ( !slot )
+        croak("failed to create hash entry");
       if (SvOK(*slot)) {
         sv_catpvn(*slot, ", ", 2);
         sv_catpvn(*slot, headers[i].value, headers[i].value_len);
