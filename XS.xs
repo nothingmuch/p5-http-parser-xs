@@ -95,7 +95,7 @@ __inline int store_url_decoded(HV* env, const char* name, size_t name_len,
 
 MODULE = HTTP::Parser::XS    PACKAGE = HTTP::Parser::XS
 
-SV* parse_http_request(SV* buf, SV* envref)
+int parse_http_request(SV* buf, SV* envref)
 PROTOTYPE: $$
 CODE:
 {
@@ -188,7 +188,7 @@ CODE:
   }
   
  done:
-  RETVAL = newSViv(ret);
+  RETVAL = ret;
 }
 OUTPUT:
   RETVAL
