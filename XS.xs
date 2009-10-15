@@ -181,7 +181,7 @@ CODE:
         sv_catpvn(*slot, ", ", 2);
         sv_catpvn(*slot, headers[i].value, headers[i].value_len);
       } else
-        *slot = newSVpvn(headers[i].value, headers[i].value_len);
+        sv_setpvn(*slot, headers[i].value, headers[i].value_len);
       last_value = *slot;
     } else {
       /* continuing lines of a mulitiline header */
